@@ -1,0 +1,27 @@
+<h1>Welcome to my food</h1>
+
+<% if is_logged_in? %>
+    Welcome, <%= current_user()['email'] %>!
+    <form action="/sessions" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Logout"/>
+    </form>
+<% else %>
+    <a href="/sign_up">Click here to sign up!</a> | 
+    <a href="/login">Login</a> | 
+<% end %>
+
+<a href="/food/create">Add a food item</a>
+
+<section class="all-food">
+  <% menu.each do |food| %>
+    <section class="food-item">
+      <section class="info">
+        <h2><%= food["name"] %></h2>
+        <a href="/food/<%= food["id"] %>">Show</a>
+        <a href="/food/<%= food["id"] %>/edit">Edit</a>
+      </section>
+      <img src="<%= food['image_url'] %>" alt="">
+    </section>
+  <% end %>
+</section>

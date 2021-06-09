@@ -1,0 +1,19 @@
+<form action="/food/<%= item["id"] %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <label for="name">
+        Name:
+    </label>
+    <input name="name" value="<%= item["name"] %>"/>
+
+    <label for="price">
+        Price:
+    </label>
+    <input name="price" value="<%= item["price"] %>" />
+
+    <label for="image_url">
+        Image Url:
+    </label>
+    <input name="image_url" value="<%= item["image_url"] %>" />
+
+    <input type="submit" value="Update food" />
+</form>

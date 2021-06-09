@@ -1,0 +1,9 @@
+<h1><%= item['name'] %></h1>
+<aside><%= item['price'] %></aside>
+<img src="<%= item['image_url'] %>" />
+<br />
+<a href="/food/<%= item["id"] %>/edit">Edit</a> |
+<form action="/food/<%= item["id"] %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE" />
+    <input type="submit" value="Delete" />
+</form>
